@@ -15,12 +15,17 @@
     "clean": "gatsby clean"
   },
   "dependencies": {
+    "@headlessui/react": "^2.2.0",
+    "@heroicons/react": "^2.2.0",
+    "@tailwindcss/postcss": "^4.0.9",
     "autoprefixer": "^10.4.20",
     "gatsby": "^5.14.1",
+    "gatsby-plugin-google-fonts": "^1.0.1",
     "gatsby-plugin-postcss": "^6.14.0",
     "postcss": "^8.5.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-icons": "^5.5.0",
     "tailwindcss": "^4.0.9"
   }
 }
