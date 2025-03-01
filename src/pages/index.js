@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { EnvelopeIcon, PhoneIcon } from "@heroicons/react/24/outline";
+import AnchorLink from "react-anchor-link-smooth-scroll";
 import { Dialog, DialogPanel } from "@headlessui/react";
 import {
   ArrowPathIcon,
@@ -12,33 +14,73 @@ import { CheckIcon } from "@heroicons/react/20/solid";
 
 const navigation = [
   { name: "Product", href: "#" },
-  { name: "Features", href: "#" },
+  { name: "services", href: "#" },
   { name: "Marketplace", href: "#" },
-  { name: "Company", href: "#" },
+  { name: "Testimonials", href: "#testimonials" },
 ];
-const features = [
+const testimonials = [
   {
-    name: "Push to deploy",
+    body: "We have an iMac that failed - turned out to be the motherboard. Jamie was able to salvage it by moving the screen and hard drive to another iMac and we're up and running. He even delivered it right to the house! Jamie has always provided great service at a fair price. He's even declined to do work when it wasn't worth it.",
+    author: {
+      name: "Mark P.",
+    },
+  },
+  {
+    body: "Jamie was friendly and helpful. He explained all the steps that needed to be done. The service was fast, friendly and he even took the time to explain what he did. Jamie even went over the pricing so I could get the most value for the dollar. Others contractors may be good but I can't imagine any better than Jamie.",
+    author: {
+      name: "Rob D.",
+    },
+  },
+  {
+    body: "Jamie was terrific - work was done professionally in a timely manner beyond all expectations. Price was very reasonable and he went above and beyond in all aspects. We will not call anyone else and will recommend him highly to anyone.",
+    author: {
+      name: "Dave R.",
+    },
+  },
+  {
+    body: "I called Jamie at 11:15 Saturday morning, delivered my HP laptop to him at 12:00 noon, and he had completed the job (plus a few extras I didn't realize I needed, but was happy he offered them to me before beginning the work) by 3:30. He was very customer-friendly, explaining to me what he had done and what differences I might see as a result.",
+    author: {
+      name: "Deborah A.",
+    },
+  },
+  // More testimonials...
+];
+
+const services = [
+  {
+    name: "Virus Removal",
     description:
-      "Morbi viverra dui mi arcu sed. Tellus semper adipiscing suspendisse semper morbi. Odio urna massa nunc massa.",
+      "Got a Virus? We can confiedntly kill the technological parasite while maintaining the condition of your device and data",
     icon: CloudArrowUpIcon,
   },
   {
-    name: "SSL certificates",
+    name: "Computer Upgrades",
     description:
-      "Sit quis amet rutrum tellus ullamcorper ultricies libero dolor eget. Sem sodales gravida quam turpis enim lacus amet.",
+      "If your device isn't running quite like it used to, we are able to clean, clear and have your device working like brand new again.",
     icon: LockClosedIcon,
   },
   {
-    name: "Simple queues",
+    name: "Data Recovery",
     description:
-      "Quisque est vel vulputate cursus. Risus proin diam nunc commodo. Lobortis auctor congue commodo diam neque.",
+      "Get your lost data back. We can retrieve majoirty of lost data no matter the cause.",
     icon: ArrowPathIcon,
   },
   {
-    name: "Advanced security",
+    name: "Hardware Repair",
     description:
-      "Arcu egestas dolor vel iaculis in ipsum mauris. Tincidunt mattis aliquet hac quis. Id hac maecenas ac donec pharetra eget.",
+      "We will complete a diagnosis and repair whatever the issue is at hand. We handel all devices with utmost care.",
+    icon: FingerPrintIcon,
+  },
+  {
+    name: "In-Home Set Up",
+    description:
+      "Have your Work from Home office professionally set up so you can stay hassel free.",
+    icon: ArrowPathIcon,
+  },
+  {
+    name: "Device Resale",
+    description:
+      "Upgrade your device! We sell refurbushed and afforable Macs and PC's.",
     icon: FingerPrintIcon,
   },
 ];
@@ -49,7 +91,7 @@ const tiers = [
     href: "#",
     priceMonthly: "$19",
     description: "The essentials to provide your best work for clients.",
-    features: [
+    services: [
       "5 products",
       "Up to 1,000 subscribers",
       "Basic analytics",
@@ -63,7 +105,7 @@ const tiers = [
     href: "#",
     priceMonthly: "$49",
     description: "A plan that scales with your rapidly growing business.",
-    features: [
+    services: [
       "25 products",
       "Up to 10,000 subscribers",
       "Advanced analytics",
@@ -78,7 +120,7 @@ const tiers = [
     href: "#",
     priceMonthly: "$99",
     description: "Dedicated support and infrastructure for your company.",
-    features: [
+    services: [
       "Unlimited products",
       "Unlimited subscribers",
       "Advanced analytics",
@@ -131,22 +173,22 @@ export default function Example() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <div className="bg-white">
+    <div className="bg-white font-primary">
       {/* Header */}
-      <header className="absolute inset-x-0 top-0 z-50">
+      <header className="absolute inset-x-0 bg-white shadow sticky top-0 z-50">
         <nav
           aria-label="Global"
           className="flex items-center justify-between p-6 lg:px-8"
         >
           <div className="flex lg:flex-1">
-            <a href="#" className="-m-1.5 p-1.5">
+            <AnchorLink href="#" className="-m-1.5 p-1.5">
               <span className="sr-only">Your Company</span>
               <img
                 alt=""
                 src="https://tailwindui.com/plus-assets/img/logos/mark.svg?color=indigo&shade=600"
                 className="h-8 w-auto"
               />
-            </a>
+            </AnchorLink>
           </div>
           <div className="flex lg:hidden">
             <button
@@ -160,13 +202,13 @@ export default function Example() {
           </div>
           <div className="hidden lg:flex lg:gap-x-12">
             {navigation.map((item) => (
-              <a
+              <AnchorLink
                 key={item.name}
                 href={item.href}
                 className="text-sm/6 font-semibold text-gray-900"
               >
                 {item.name}
-              </a>
+              </AnchorLink>
             ))}
           </div>
           <div className="hidden lg:flex lg:flex-1 lg:justify-end">
@@ -229,7 +271,7 @@ export default function Example() {
 
       <main className="isolate">
         {/* Hero section */}
-        <div className="relative pt-14">
+        <div className="relative">
           <div
             aria-hidden="true"
             className="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
@@ -239,40 +281,47 @@ export default function Example() {
                 clipPath:
                   "polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)",
               }}
-              className="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]"
+              className="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[#ed6c30] to-[#ffae46] opacity-10 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]"
             />
           </div>
-          <div className="py-24 sm:py-32 lg:pb-40">
+          <div className="py-18 lg:pb-40">
             <div className="mx-auto max-w-7xl px-6 lg:px-8">
-              <div className="mx-auto max-w-2xl text-center">
-                <h1 className="text-balance text-5xl font-semibold tracking-tight text-gray-900 sm:text-7xl">
-                  Deploy to the cloud with confidence
+              <div className="mx-auto max-w-7xl text-center">
+                <h1 className="text-balance text-5xl font-semibold tracking-tight text-violet-900 lg:text-7xl/20">
+                  Let's face it, If you didn't have computer problems, you
+                  wouldn't be reading this or have visited this website.
                 </h1>
-                <p className="mt-8 text-pretty text-lg font-medium text-gray-500 sm:text-xl/8">
-                  Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure
-                  qui lorem cupidatat commodo. Elit sunt amet fugiat veniam
-                  occaecat.
+                <p className="mt-8 max-w-4xl mx-auto text-pretty text-lg font-medium text-gray-500 sm:text-xl/8">
+                  We have been trusted to remove viruses, repair computers,
+                  recover data and sells refurbished computers and laptops in
+                  the Tampa Bay area for over 15 years.
+                </p>
+                <p className="mt-8 max-w-4xl mx-auto text-pretty text-lg font-medium text-gray-500 sm:text-xl/8">
+                  Let us show you the reason why you should give us a call and
+                  join our many customers whom call us "Their Computer Guys!"
                 </p>
                 <div className="mt-10 flex items-center justify-center gap-x-6">
                   <a
                     href="#"
-                    className="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                    className="rounded-full bg-main px-20 py-2.5 text-lg font-semibold text-white hover:opacity-70 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-main"
                   >
-                    Get started
+                    Shoot us an Email
                   </a>
-                  <a href="#" className="text-sm/6 font-semibold text-gray-900">
-                    Learn more <span aria-hidden="true">→</span>
+                  <a
+                    href="#"
+                    className="text-lg/6 font-semibold text-violet-900 hover:underline hover:text-violet-500"
+                  >
+                    Need to Bring Your Device In?{" "}
+                    <span aria-hidden="true">↓</span>
                   </a>
                 </div>
               </div>
-              <div className="mt-16 flow-root sm:mt-24">
-                <div className="-m-2 rounded-xl bg-gray-900/5 p-2 ring-1 ring-inset ring-gray-900/10 lg:-m-4 lg:rounded-2xl lg:p-4">
+              <div className="mt-10 flow-root">
+                <div className="">
                   <img
                     alt="App screenshot"
-                    src="https://tailwindui.com/plus-assets/img/component-images/project-app-screenshot.png"
-                    width={2432}
-                    height={1442}
-                    className="rounded-md shadow-2xl ring-1 ring-gray-900/10"
+                    src="https://imgix.cosmicjs.com/99e54170-f6a5-11ef-97be-337de38c2241-VNU_M652_01.svg"
+                    className=""
                   />
                 </div>
               </div>
@@ -292,83 +341,38 @@ export default function Example() {
           </div>
         </div>
 
-        {/* Logo cloud */}
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="mx-auto grid max-w-lg grid-cols-4 items-center gap-x-8 gap-y-12 sm:max-w-xl sm:grid-cols-6 sm:gap-x-10 sm:gap-y-14 lg:mx-0 lg:max-w-none lg:grid-cols-5">
-            <img
-              alt="Transistor"
-              src="https://tailwindui.com/plus-assets/img/logos/158x48/transistor-logo-gray-900.svg"
-              width={158}
-              height={48}
-              className="col-span-2 max-h-12 w-full object-contain lg:col-span-1"
-            />
-            <img
-              alt="Reform"
-              src="https://tailwindui.com/plus-assets/img/logos/158x48/reform-logo-gray-900.svg"
-              width={158}
-              height={48}
-              className="col-span-2 max-h-12 w-full object-contain lg:col-span-1"
-            />
-            <img
-              alt="Tuple"
-              src="https://tailwindui.com/plus-assets/img/logos/158x48/tuple-logo-gray-900.svg"
-              width={158}
-              height={48}
-              className="col-span-2 max-h-12 w-full object-contain lg:col-span-1"
-            />
-            <img
-              alt="SavvyCal"
-              src="https://tailwindui.com/plus-assets/img/logos/158x48/savvycal-logo-gray-900.svg"
-              width={158}
-              height={48}
-              className="col-span-2 max-h-12 w-full object-contain sm:col-start-2 lg:col-span-1"
-            />
-            <img
-              alt="Statamic"
-              src="https://tailwindui.com/plus-assets/img/logos/158x48/statamic-logo-gray-900.svg"
-              width={158}
-              height={48}
-              className="col-span-2 col-start-2 max-h-12 w-full object-contain sm:col-start-auto lg:col-span-1"
-            />
-          </div>
-          <div className="mt-16 flex justify-center">
-            <p className="relative rounded-full px-4 py-1.5 text-sm/6 text-gray-600 ring-1 ring-inset ring-gray-900/10 hover:ring-gray-900/20">
-              <span className="hidden md:inline">
-                Transistor saves up to $40,000 per year, per employee by working
-                with us.
-              </span>
-              <a href="#" className="font-semibold text-indigo-600">
-                <span aria-hidden="true" className="absolute inset-0" /> Read
-                our case study <span aria-hidden="true">&rarr;</span>
-              </a>
-            </p>
-          </div>
+        <div className="mx-auto max-w-5xl lg:text-center">
+          <p className="mt-2 text-pretty text-4xl font-semibold tracking-tight text-gray-900 lg:text-5xl">
+            For over 15 years, we have been servicing computers in the Tampa Bay
+            area
+          </p>
+          <img
+            src="https://imgix.cosmicjs.com/c89090e0-f6ac-11ef-97be-337de38c2241-apple-cert.png"
+            className="mx-auto mix-blend-multiply"
+          />
         </div>
 
         {/* Feature section */}
         <div className="mx-auto mt-32 max-w-7xl px-6 sm:mt-56 lg:px-8">
           <div className="mx-auto max-w-2xl lg:text-center">
-            <h2 className="text-base/7 font-semibold text-indigo-600">
-              Deploy faster
-            </h2>
             <p className="mt-2 text-pretty text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl lg:text-balance">
-              Everything you need to deploy your app
+              Services for Your Home or Small Business
             </p>
             <p className="mt-6 text-pretty text-lg/8 text-gray-600">
-              Quis tellus eget adipiscing convallis sit sit eget aliquet quis.
-              Suspendisse eget egestas a elementum pulvinar et feugiat blandit
-              at. In mi viverra elit nunc.
+              Macs, PCs, iPhone and iPads are all welcomed and will
+              professionally and dilligently be serviced by the trusted
+              profesionals at Computer Repair 911.
             </p>
           </div>
-          <div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-4xl">
+          <div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-7xl">
             <dl className="grid max-w-xl grid-cols-1 gap-x-8 gap-y-10 lg:max-w-none lg:grid-cols-2 lg:gap-y-16">
-              {features.map((feature) => (
+              {services.map((feature) => (
                 <div key={feature.name} className="relative pl-16">
                   <dt className="text-base/7 font-semibold text-gray-900">
-                    <div className="absolute left-0 top-0 flex size-10 items-center justify-center rounded-lg bg-indigo-600">
+                    <div className="absolute left-0 top-0 flex size-12 items-center justify-center rounded-lg bg-main">
                       <feature.icon
                         aria-hidden="true"
-                        className="size-6 text-white"
+                        className="size-8 text-white"
                       />
                     </div>
                     {feature.name}
@@ -383,220 +387,80 @@ export default function Example() {
         </div>
 
         {/* Testimonial section */}
-        <div className="mx-auto mt-32 max-w-7xl sm:mt-56 sm:px-6 lg:px-8">
-          <div className="relative overflow-hidden bg-gray-900 px-6 py-20 shadow-xl sm:rounded-3xl sm:px-10 sm:py-24 md:px-12 lg:px-20">
-            <img
-              alt=""
-              src="https://images.unsplash.com/photo-1601381718415-a05fb0a261f3?ixid=MXwxMjA3fDB8MHxwcm9maWxlLXBhZ2V8ODl8fHxlbnwwfHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1216&q=80"
-              className="absolute inset-0 size-full object-cover brightness-150 saturate-0"
-            />
-            <div className="absolute inset-0 bg-gray-900/90 mix-blend-multiply" />
-            <div
-              aria-hidden="true"
-              className="absolute -left-80 -top-56 transform-gpu blur-3xl"
-            >
-              <div
-                style={{
-                  clipPath:
-                    "polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)",
-                }}
-                className="aspect-[1097/845] w-[68.5625rem] bg-gradient-to-r from-[#ff4694] to-[#776fff] opacity-[0.45]"
-              />
-            </div>
-            <div
-              aria-hidden="true"
-              className="hidden md:absolute md:bottom-16 md:left-[50rem] md:block md:transform-gpu md:blur-3xl"
-            >
-              <div
-                style={{
-                  clipPath:
-                    "polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)",
-                }}
-                className="aspect-[1097/845] w-[68.5625rem] bg-gradient-to-r from-[#ff4694] to-[#776fff] opacity-25"
-              />
-            </div>
-            <div className="relative mx-auto max-w-2xl lg:mx-0">
-              <img
-                alt=""
-                src="https://tailwindui.com/plus-assets/img/logos/workcation-logo-white.svg"
-                className="h-12 w-auto"
-              />
-              <figure>
-                <blockquote className="mt-6 text-lg font-semibold text-white sm:text-xl/8">
-                  <p>
-                    “Amet amet eget scelerisque tellus sit neque faucibus non
-                    eleifend. Integer eu praesent at a. Ornare arcu gravida
-                    natoque erat et cursus tortor consequat at. Vulputate
-                    gravida sociis enim nullam ultricies habitant malesuada
-                    lorem ac.”
-                  </p>
-                </blockquote>
-                <figcaption className="mt-6 text-base text-white">
-                  <div className="font-semibold">Judith Black</div>
-                  <div className="mt-1">CEO of Tuple</div>
-                </figcaption>
-              </figure>
-            </div>
-          </div>
-        </div>
-
-        {/* Pricing section */}
-        <div className="py-24 sm:pt-48">
-          <div className="mx-auto max-w-7xl px-6 lg:px-8">
-            <div className="mx-auto max-w-2xl lg:text-center">
-              <h2 className="text-base/7 font-semibold text-indigo-600">
-                Pricing
-              </h2>
-              <p className="mt-2 text-pretty text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl lg:text-balance">
-                Pricing that grows with you
-              </p>
-              <p className="mt-6 text-pretty text-lg/8 text-gray-600">
-                Quis tellus eget adipiscing convallis sit sit eget aliquet quis.
-                Suspendisse eget egestas a elementum pulvinar et feugiat blandit
-                at. In mi viverra elit nunc.
-              </p>
-            </div>
-            <div className="isolate mx-auto mt-16 grid max-w-md grid-cols-1 gap-y-8 sm:mt-20 lg:mx-0 lg:max-w-none lg:grid-cols-3">
-              {tiers.map((tier, tierIdx) => (
-                <div
-                  key={tier.id}
-                  className={classNames(
-                    tier.mostPopular ? "lg:z-10 lg:rounded-b-none" : "lg:mt-8",
-                    tierIdx === 0 ? "lg:rounded-r-none" : "",
-                    tierIdx === tiers.length - 1 ? "lg:rounded-l-none" : "",
-                    "flex flex-col justify-between rounded-3xl bg-white p-8 ring-1 ring-gray-200 xl:p-10"
-                  )}
-                >
-                  <div>
-                    <div className="flex items-center justify-between gap-x-4">
-                      <h3
-                        id={tier.id}
-                        className={classNames(
-                          tier.mostPopular
-                            ? "text-indigo-600"
-                            : "text-gray-900",
-                          "text-lg/8 font-semibold"
-                        )}
-                      >
-                        {tier.name}
-                      </h3>
-                      {tier.mostPopular ? (
-                        <p className="rounded-full bg-indigo-600/10 px-2.5 py-1 text-xs/5 font-semibold text-indigo-600">
-                          Most popular
-                        </p>
-                      ) : null}
-                    </div>
-                    <p className="mt-4 text-sm/6 text-gray-600">
-                      {tier.description}
-                    </p>
-                    <p className="mt-6 flex items-baseline gap-x-1">
-                      <span className="text-4xl font-semibold tracking-tight text-gray-900">
-                        {tier.priceMonthly}
-                      </span>
-                      <span className="text-sm/6 font-semibold text-gray-600">
-                        /month
-                      </span>
-                    </p>
-                    <ul
-                      role="list"
-                      className="mt-8 space-y-3 text-sm/6 text-gray-600"
-                    >
-                      {tier.features.map((feature) => (
-                        <li key={feature} className="flex gap-x-3">
-                          <CheckIcon
-                            aria-hidden="true"
-                            className="h-6 w-5 flex-none text-indigo-600"
-                          />
-                          {feature}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                  <a
-                    href={tier.href}
-                    aria-describedby={tier.id}
-                    className={classNames(
-                      tier.mostPopular
-                        ? "bg-indigo-600 text-white shadow-sm hover:bg-indigo-500"
-                        : "text-indigo-600 ring-1 ring-inset ring-indigo-200 hover:ring-indigo-300",
-                      "mt-8 block rounded-md px-3 py-2 text-center text-sm/6 font-semibold focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-                    )}
-                  >
-                    Buy plan
-                  </a>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-
-        {/* FAQs */}
-        <div className="mx-auto max-w-2xl px-6 pb-8 sm:pb-24 sm:pt-12 lg:max-w-7xl lg:px-8 lg:pb-32">
-          <h2 className="text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl">
-            Frequently asked questions
-          </h2>
-          <dl className="mt-20 divide-y divide-gray-900/10">
-            {faqs.map((faq) => (
-              <div
-                key={faq.id}
-                className="py-8 first:pt-0 last:pb-0 lg:grid lg:grid-cols-12 lg:gap-8"
-              >
-                <dt className="text-base/7 font-semibold text-gray-900 lg:col-span-5">
-                  {faq.question}
-                </dt>
-                <dd className="mt-4 lg:col-span-7 lg:mt-0">
-                  <p className="text-base/7 text-gray-600">{faq.answer}</p>
-                </dd>
+        <section
+          id="testimonials"
+          className="mx-auto mt-32 max-w-7xl sm:mt-56 sm:px-6 lg:px-8"
+        >
+          <div className="bg-white py-24 sm:py-32">
+            <div className="mx-auto max-w-7xl px-6 lg:px-8">
+              <div className="mx-auto max-w-2xl text-center">
+                <p className="mt-2 text-balance text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl">
+                  Here's What our Customers are Saying About Us
+                </p>
               </div>
-            ))}
-          </dl>
-        </div>
+              <div className="mx-auto mt-16 flow-root max-w-2xl sm:mt-20 lg:mx-0 lg:max-w-none">
+                <div className="-mt-8 sm:-mx-4 grid grid-cols-2">
+                  {testimonials.map((testimonial) => (
+                    <div
+                      key={testimonial.author.name}
+                      className="pt-8 sm:inline-block sm:w-full sm:px-4"
+                    >
+                      <figure className="rounded-2xl bg-violet-50 p-8 text-sm/6">
+                        <blockquote className="text-gray-900">
+                          <p>{`“${testimonial.body}”`}</p>
+                        </blockquote>
+                        <figcaption className="mt-6 flex items-center gap-x-4">
+                          <div>
+                            <div className="font-semibold text-gray-900">
+                              {testimonial.author.name}
+                            </div>
+                          </div>
+                        </figcaption>
+                      </figure>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
 
         {/* CTA section */}
         <div className="relative -z-10 mt-32 px-6 lg:px-8">
           <div
             aria-hidden="true"
             className="absolute inset-x-0 top-1/2 -z-10 flex -translate-y-1/2 transform-gpu justify-center overflow-hidden blur-3xl sm:bottom-0 sm:right-[calc(50%-6rem)] sm:top-auto sm:translate-y-0 sm:transform-gpu sm:justify-end"
-          >
-            <div
-              style={{
-                clipPath:
-                  "polygon(73.6% 48.6%, 91.7% 88.5%, 100% 53.9%, 97.4% 18.1%, 92.5% 15.4%, 75.7% 36.3%, 55.3% 52.8%, 46.5% 50.9%, 45% 37.4%, 50.3% 13.1%, 21.3% 36.2%, 0.1% 0.1%, 5.4% 49.1%, 21.4% 36.4%, 58.9% 100%, 73.6% 48.6%)",
-              }}
-              className="aspect-[1108/632] w-[69.25rem] flex-none bg-gradient-to-r from-[#ff80b5] to-[#9089fc] opacity-25"
-            />
-          </div>
-          <div className="mx-auto max-w-2xl text-center">
-            <h2 className="text-balance text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl">
-              Boost your productivity. Start using our app today.
+          ></div>
+          <div className="mx-auto max-w-7xl text-center">
+            <h2 className="text-balance text-4xl font-semibold tracking-tight text-violet-900 lg:text-5xl/13">
+              We want to help you with your computer issues. Shoot us an email
+              or give us a call.
             </h2>
-            <p className="mx-auto mt-6 max-w-xl text-pretty text-lg/8 text-gray-600">
-              Incididunt sint fugiat pariatur cupidatat consectetur sit cillum
-              anim id veniam aliqua proident excepteur commodo do ea.
-            </p>
+            <div className="flex justify-center">
+              <p className="mt-6 text-pretty text-lg/8 text-gray-600">
+                Mon-Fri 10am to 5pm
+              </p>
+              <p className="border-violet-600 border-l-2 ml-5 pl-5  mt-6 text-pretty text-lg/8 text-gray-600">
+                Sat 10am to 4pm
+              </p>
+              <p className="border-violet-600 border-l-2 ml-5 pl-5 mt-6 text-pretty text-lg/8 text-gray-600">
+                Closed Sunday
+              </p>
+            </div>
             <div className="mt-10 flex items-center justify-center gap-x-6">
               <a
                 href="#"
-                className="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                className="rounded-full bg-main px-20 py-2.5 text-lg font-semibold text-white hover:opacity-70 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-main"
               >
-                Get started
+                Shoot us an Email
               </a>
-              <a href="#" className="text-sm/6 font-semibold text-gray-900">
-                Learn more <span aria-hidden="true">→</span>
+              <a
+                href="#"
+                className="text-lg/6 font-semibold text-violet-900 hover:underline hover:text-violet-500"
+              >
+                Need to Bring Your Device In? <span aria-hidden="true">↓</span>
               </a>
             </div>
-          </div>
-          <div
-            aria-hidden="true"
-            className="absolute left-1/2 right-0 top-full -z-10 hidden -translate-y-1/2 transform-gpu overflow-hidden blur-3xl sm:block"
-          >
-            <div
-              style={{
-                clipPath:
-                  "polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)",
-              }}
-              className="aspect-[1155/678] w-[72.1875rem] bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30"
-            />
           </div>
         </div>
       </main>
