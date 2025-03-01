@@ -13,10 +13,10 @@ import {
 import { PhoneIcon } from "@heroicons/react/20/solid";
 
 const navigation = [
-  { name: "Product", href: "#" },
-  { name: "services", href: "#" },
-  { name: "Marketplace", href: "#" },
+  { name: "About", href: "#about" },
+  { name: "Services", href: "#services" },
   { name: "Testimonials", href: "#testimonials" },
+  { name: "Contact", href: "#contact" },
 ];
 const testimonials = [
   {
@@ -84,92 +84,8 @@ const services = [
     icon: FingerPrintIcon,
   },
 ];
-const tiers = [
-  {
-    name: "Freelancer",
-    id: "tier-freelancer",
-    href: "#",
-    priceMonthly: "$19",
-    description: "The essentials to provide your best work for clients.",
-    services: [
-      "5 products",
-      "Up to 1,000 subscribers",
-      "Basic analytics",
-      "48-hour support response time",
-    ],
-    mostPopular: false,
-  },
-  {
-    name: "Startup",
-    id: "tier-startup",
-    href: "#",
-    priceMonthly: "$49",
-    description: "A plan that scales with your rapidly growing business.",
-    services: [
-      "25 products",
-      "Up to 10,000 subscribers",
-      "Advanced analytics",
-      "24-hour support response time",
-      "Marketing automations",
-    ],
-    mostPopular: true,
-  },
-  {
-    name: "Enterprise",
-    id: "tier-enterprise",
-    href: "#",
-    priceMonthly: "$99",
-    description: "Dedicated support and infrastructure for your company.",
-    services: [
-      "Unlimited products",
-      "Unlimited subscribers",
-      "Advanced analytics",
-      "1-hour, dedicated support response time",
-      "Marketing automations",
-    ],
-    mostPopular: false,
-  },
-];
-const faqs = [
-  {
-    id: 1,
-    question: "What's the best thing about Switzerland?",
-    answer:
-      "I don't know, but the flag is a big plus. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas cupiditate laboriosam fugiat.",
-  },
-  // More questions...
-];
-const footerNavigation = {
-  solutions: [
-    { name: "Hosting", href: "#" },
-    { name: "Data services", href: "#" },
-    { name: "Uptime monitoring", href: "#" },
-    { name: "Enterprise services", href: "#" },
-    { name: "Analytics", href: "#" },
-  ],
-  support: [
-    { name: "Submit ticket", href: "#" },
-    { name: "Documentation", href: "#" },
-    { name: "Guides", href: "#" },
-  ],
-  company: [
-    { name: "About", href: "#" },
-    { name: "Blog", href: "#" },
-    { name: "Jobs", href: "#" },
-    { name: "Press", href: "#" },
-  ],
-  legal: [
-    { name: "Terms of service", href: "#" },
-    { name: "Privacy policy", href: "#" },
-    { name: "License", href: "#" },
-  ],
-};
 
-function classNames(...classes) {
-  return classes.filter(Boolean).join(" ");
-}
-
-export default function Example() {
+export default function Home() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
@@ -190,7 +106,7 @@ export default function Example() {
               />
             </AnchorLink>
           </div>
-          <div className="flex lg:hidden">
+          <div className="hidden">
             <button
               type="button"
               onClick={() => setMobileMenuOpen(true)}
@@ -211,7 +127,7 @@ export default function Example() {
               </AnchorLink>
             ))}
           </div>
-          <div className="hidden lg:flex lg:flex-1 lg:justify-end">
+          <div className="flex lg:flex-1 lg:justify-end">
             <div className="flex gap-x-2">
               <dt className="flex-none">
                 <span className="sr-only">Telephone</span>
@@ -237,7 +153,7 @@ export default function Example() {
           className="lg:hidden"
         >
           <div className="fixed inset-0 z-50" />
-          <DialogPanel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
+          <DialogPanel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 lg:max-w-sm lg:ring-1 lg:ring-gray-900/10">
             <div className="flex items-center justify-between">
               <a href="#" className="-m-1.5 p-1.5">
                 <span className="sr-only">Your Company</span>
@@ -288,38 +204,38 @@ export default function Example() {
         <div className="relative">
           <div
             aria-hidden="true"
-            className="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
+            className="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl lg:-top-80"
           ></div>
-          <div className="py-18">
+          <div className="py-10 lg:py-18">
             <div className="mx-auto max-w-7xl px-5">
               <div className="mx-auto max-w-7xl text-center">
-                <h1 className="text-balance text-5xl font-semibold tracking-tight text-violet-900 lg:text-7xl/20">
+                <h1 className="text-balance text-4xl font-semibold tracking-tight text-violet-900 lg:text-7xl/20">
                   Let's face it, If you didn't have computer problems, you
                   wouldn't be reading this or have visited this website.
                 </h1>
-                <p className="mt-8 max-w-4xl mx-auto text-pretty text-lg font-medium text-gray-500 sm:text-xl/8">
+                <p className="mt-8 max-w-4xl mx-auto text-pretty text-lg font-medium text-gray-500 lg:text-xl/8">
                   We have been trusted to remove viruses, repair computers,
                   recover data and sells refurbished computers and laptops in
                   the Tampa Bay area for over 15 years.
                 </p>
-                <p className="mt-8 max-w-4xl mx-auto text-pretty text-lg font-medium text-gray-500 sm:text-xl/8">
+                <p className="mt-8 max-w-4xl mx-auto text-pretty text-lg font-medium text-gray-500 lg:text-xl/8">
                   Let us show you the reason why you should give us a call and
                   join our many customers whom call us "Their Computer Guys!"
                 </p>
-                <div className="mt-10 flex items-center justify-center gap-x-6">
+                <div className="mt-10 lg:flex items-center lg:justify-center gap-x-6">
                   <a
                     href="mailto:service@computerrepair911.biz"
                     className="rounded-full bg-main px-20 py-2.5 text-lg font-semibold text-white hover:opacity-70 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-main"
                   >
                     service@computerrepair911.biz
                   </a>
-                  <a
-                    href="#"
-                    className="text-lg/6 font-semibold text-violet-900 hover:underline hover:text-violet-500"
+                  <AnchorLink
+                    href="#contact"
+                    className="mt-12 block text-lg/6 font-semibold text-violet-900 lg:mt-0 hover:underline hover:text-violet-500"
                   >
                     Need to Bring Your Device In?{" "}
                     <span aria-hidden="true">↓</span>
-                  </a>
+                  </AnchorLink>
                 </div>
               </div>
               <div className="mt-10 flow-root">
@@ -335,7 +251,10 @@ export default function Example() {
           </div>
         </div>
 
-        <div className="mx-auto max-w-5xl lg:text-center">
+        <section
+          id="about"
+          className="px-5 text-center mx-auto max-w-5xl lg:text-center"
+        >
           <p className="text-pretty text-4xl font-semibold tracking-tight text-violet-900 lg:text-7xl">
             For over 15 years, we have been servicing computers in the Tampa Bay
             area
@@ -344,21 +263,26 @@ export default function Example() {
             src="https://imgix.cosmicjs.com/c89090e0-f6ac-11ef-97be-337de38c2241-apple-cert.png"
             className="mx-auto mix-blend-multiply"
           />
-        </div>
-        <div className="bg-violet-900 p-10 rounded-4xl mx-auto max-w-5xl lg:text-center">
-          <p className="mt-2 text-pretty text-4xl font-semibold tracking-tight text-violet-100 lg:text-xl">
-            Partners
-          </p>
-          <p className="mt-2 text-pretty text-4xl font-semibold tracking-tight text-white lg:text-6xl">
-            Ray's Connecting Point
-          </p>
-          <p className="mt-8 max-w-4xl mx-auto text-pretty text-lg font-medium text-white sm:text-xl/8">
-            Ray's has been servcing Tampa Bay area for 35+ years!
-          </p>
+        </section>
+        <div className="px-5">
+          <div className="text-center bg-violet-900 p-10 rounded-4xl mx-auto max-w-5xl">
+            <p className="mt-2 text-pretty text-4xl font-semibold tracking-tight text-violet-100 lg:text-xl">
+              Partners
+            </p>
+            <p className="mt-2 text-pretty text-4xl font-semibold tracking-tight text-white lg:text-6xl">
+              Ray's Connecting Point
+            </p>
+            <p className="mt-8 max-w-4xl mx-auto text-pretty text-lg font-medium text-white lg:text-xl/8">
+              Ray's has been servcing Tampa Bay area for 35+ years!
+            </p>
+          </div>
         </div>
 
         {/* Feature section */}
-        <div className="mx-auto mt-32 max-w-7xl px-6 lg:mt-32 lg:px-8">
+        <section
+          id="services"
+          className="mx-auto mt-32 max-w-7xl px-6 lg:mt-32 lg:px-8"
+        >
           <div className="mx-auto max-w-2xl lg:text-center">
             <p className="mt-2 text-pretty text-4xl font-semibold tracking-tight text-main lg:text-6xl lg:text-balance">
               Services for Your Home or Small Business
@@ -369,7 +293,7 @@ export default function Example() {
               profesionals at Computer Repair 911.
             </p>
           </div>
-          <div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-7xl">
+          <div className="mx-auto mt-16 max-w-2xl lg:mt-20 lg:mt-24 lg:max-w-7xl">
             <dl className="grid max-w-xl grid-cols-1 gap-x-8 gap-y-10 lg:max-w-none lg:grid-cols-2 lg:gap-y-16">
               {services.map((feature) => (
                 <div key={feature.name} className="relative pl-16">
@@ -389,26 +313,23 @@ export default function Example() {
               ))}
             </dl>
           </div>
-        </div>
+        </section>
 
         {/* Testimonial section */}
-        <section
-          id="testimonials"
-          className="mx-auto mt-32 max-w-7xl lg:mt-10 sm:px-6 lg:px-8"
-        >
-          <div className="bg-white py-24 sm:py-32">
-            <div className="mx-auto max-w-7xl px-6 lg:px-8">
+        <section id="testimonials" className="mx-auto mt-10 max-w-7xl px-5">
+          <div className="bg-white py-24 lg:py-32">
+            <div className="mx-auto max-w-7xl px-5">
               <div className="mx-auto text-center">
                 <p className="mt-2 text-balance text-4xl font-semibold tracking-tight text-gray-900 lg:text-6xl">
                   Here's What our Customers are Saying About Us
                 </p>
               </div>
-              <div className="mx-auto mt-16 flow-root max-w-2xl sm:mt-20 lg:mx-0 lg:max-w-none">
-                <div className="-mt-8 sm:-mx-4 grid grid-cols-2">
+              <div className="mx-auto mt-16 flow-root max-w-2xl lg:mt-20 lg:mx-0 lg:max-w-none">
+                <div className="-mt-8 lg:-mx-4 grid lg:grid-cols-2">
                   {testimonials.map((testimonial) => (
                     <div
                       key={testimonial.author.name}
-                      className="pt-8 sm:inline-block sm:w-full sm:px-4"
+                      className="pt-8 lg:inline-block lg:w-full lg:px-4"
                     >
                       <figure className="rounded-2xl bg-violet-50 p-8 text-sm/6">
                         <blockquote className="text-gray-900">
@@ -431,10 +352,10 @@ export default function Example() {
         </section>
 
         {/* CTA section */}
-        <div className="relative -z-10 mt-10 px-6 lg:px-8">
+        <section id="contact" className="relative -z-10 mt-10 px-6 lg:px-8">
           <div
             aria-hidden="true"
-            className="absolute inset-x-0 top-1/2 -z-10 flex -translate-y-1/2 transform-gpu justify-center overflow-hidden blur-3xl sm:bottom-0 sm:right-[calc(50%-6rem)] sm:top-auto sm:translate-y-0 sm:transform-gpu sm:justify-end"
+            className="absolute inset-x-0 top-1/2 -z-10 flex -translate-y-1/2 transform-gpu justify-center overflow-hidden blur-3xl lg:bottom-0 lg:right-[calc(50%-6rem)] lg:top-auto lg:translate-y-0 lg:transform-gpu lg:justify-end"
           ></div>
           <div className="mx-auto max-w-7xl text-center">
             <h2 className="text-balance text-4xl font-semibold tracking-tight text-violet-900 lg:text-5xl/13">
@@ -460,7 +381,7 @@ export default function Example() {
                 Closed Sunday
               </p>
             </div>
-            <div className="mt-10 flex items-center justify-center gap-x-6">
+            <div className="mt-10 lg:flex items-center justify-center gap-x-6">
               <a
                 href="mailto:service@computerrepair911.biz"
                 className="rounded-full bg-main px-20 py-2.5 text-lg font-semibold text-white hover:opacity-70 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-main"
@@ -468,10 +389,10 @@ export default function Example() {
                 service@computerrepair911.biz
               </a>
               <a
-                href="#"
-                className="rounded-full bg-violet-900 px-20 py-2.5 text-lg font-semibold text-white hover:opacity-70 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-main"
+                href="tel:7274593846"
+                className="block mt-10 rounded-full bg-violet-900 px-20 py-2.5 text-lg font-semibold text-white hover:opacity-70 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-main lg:mt-0"
               >
-                <div className="flex gap-x-2">
+                <div className="flex justify-center gap-x-2">
                   <dt className="flex-none">
                     <span className="sr-only">Telephone</span>
                     <PhoneIcon
@@ -488,7 +409,7 @@ export default function Example() {
               </a>
             </div>
           </div>
-        </div>
+        </section>
       </main>
 
       {/* Footer */}
